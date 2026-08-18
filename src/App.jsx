@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import PanelMetricas from "./componentes/PanelMetricas";
+import PanelMetricas from "./components/PanelMetricas";
 import {
   Plus, Wallet, PieChart, Tags, ChevronLeft, ChevronRight,
   ArrowUpRight, ArrowDownRight, Trash2, X, Check, Receipt
