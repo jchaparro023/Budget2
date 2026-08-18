@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import 
 import PanelMetricas from "./componentes/PanelMetricas";
 
 const datosReales = {
