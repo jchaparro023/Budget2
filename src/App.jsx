@@ -217,7 +217,7 @@ export default function PresupuestoApp() {
       )}
     </div>
   );
-}
+<PanelMetricas real={datosReales} proyectado={datosProyectados} deudaDetalle={deudaPorAcreedor} />}
 
 // --- Header con saldo del mes -------------------------------------------------
 
