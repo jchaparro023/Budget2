@@ -1,33 +1,10 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import PanelMetricas from "./componentes/PanelMetricas";
-
-const datosReales = {
-  ingreso: 90665284,
-  egreso: 88467953,
-  fijos: 14961726,
-  variables: 54602686,
-  deuda: 44881722,
-  provisiones: 5696743,
-  ahorro: 0,
-};
-
-const datosProyectados = {
-  ingreso: 36294886,
-  egreso: 31674924,
-};
-
-const deudaPorAcreedor = [
-  { nombre: "Bancolombia Crédito", saldo: 53024343 },
-  { nombre: "Hipotecario", saldo: 17013111 },
-  { nombre: "C. Rappi", saldo: 12877121 },
-  { nombre: "Compensar", saldo: 8371023 },
-  { nombre: "NU", saldo: 5633216 },
-  { nombre: "AV Villas", saldo: 2159685 },
-  { nombre: "Rappi", saldo: 89000 },
-];{
+import {
   Plus, Wallet, PieChart, Tags, ChevronLeft, ChevronRight,
   ArrowUpRight, ArrowDownRight, Trash2, X, Check, Receipt
 } from "lucide-react";
+
 const datosReales = {
   ingreso: 90665284,
   egreso: 88467953,
@@ -199,8 +176,12 @@ export default function PresupuestoApp() {
           <RegistrarTab cats={cats} onAdd={addTx} recentTxs={txs.slice(0, 6)} onDelete={deleteTx} />
         ) : tab === "resumen" ? (
           <ResumenTab monthTxs={monthTxs} cats={cats} refDate={refDate} />
-        ) : (
+        ) : tab === "categorias" ? (
           <CategoriasTab cats={cats} monthTxs={monthTxs} onAddCat={addCat} onResetAll={resetAllTxs} totalTxCount={(txs || []).length} />
+        ) : (
+          <div className="pb-6">
+            <PanelMetricas real={datosReales} proyectado={datosProyectados} deudaDetalle={deudaPorAcreedor} />
+          </div>
         )}
       </main>
 
@@ -216,7 +197,7 @@ export default function PresupuestoApp() {
       )}
     </div>
   );
-<PanelMetricas real={datosReales} proyectado={datosProyectados} deudaDetalle={deudaPorAcreedor} />}
+}
 
 // --- Header con saldo del mes -------------------------------------------------
 
@@ -592,6 +573,7 @@ function TabBar({ tab, setTab }) {
     { id: "registrar", label: "Registrar", icon: Plus },
     { id: "resumen", label: "Resumen", icon: Wallet },
     { id: "categorias", label: "Categorías", icon: Tags },
+    { id: "metricas", label: "Métricas", icon: PieChart },
   ];
   return (
     <div
