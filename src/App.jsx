@@ -3,6 +3,30 @@ import {
   Plus, Wallet, PieChart, Tags, ChevronLeft, ChevronRight,
   ArrowUpRight, ArrowDownRight, Trash2, X, Check, Receipt
 } from "lucide-react";
+const datosReales = {
+  ingreso: 90665284,
+  egreso: 88467953,
+  fijos: 14961726,      // aproximado: suma fijos ene-ago del Excel (ajústalo si quieres el dato exacto)
+  variables: 54602686,  // idem, quítale la moto si ya la reclasificaste como activo
+  deuda: 44881722,
+  provisiones: 5696743,
+  ahorro: 0,
+};
+
+const datosProyectados = {
+  ingreso: 36294886,
+  egreso: 31674924,
+};
+
+const deudaPorAcreedor = [
+  { nombre: "Bancolombia Crédito", saldo: 53024343 },
+  { nombre: "Hipotecario", saldo: 17013111 },
+  { nombre: "C. Rappi", saldo: 12877121 },
+  { nombre: "Compensar", saldo: 8371023 },
+  { nombre: "NU", saldo: 5633216 },
+  { nombre: "AV Villas", saldo: 2159685 },
+  { nombre: "Rappi", saldo: 89000 },
+];
 
 // ---------------------------------------------------------------------------
 // Modelo de datos
